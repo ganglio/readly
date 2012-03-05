@@ -1,0 +1,43 @@
+html {
+    height: 100%;
+}
+body {
+    background-color: wheat;
+    height: 100%;
+    margin: 0;
+}
+header {
+    background-color: tan;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    height: 40px;
+}
+header nav {
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    width: 960px;
+}
+header nav input {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
+    border-radius: 16px 16px 16px 16px;
+    height: 16px;
+    padding-left: 20px;
+    color: tan;
+    font-size: 16px;
+    width: 200px;
+    line-height: 16px;
+    display: block;
+    float: left;
+    margin: 10px;
+}
+header nav .button {
+    height: 32px;
+    width: 32px;
+    display: block;
+    float: right;
+    margin: 4px;
+}
+header nav .dropbox {
+	background-image: url(images/dropbox.svg);
+}
