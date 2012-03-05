@@ -10,7 +10,8 @@ class Library {
 				if (strpos($fname,"epub")) {
 					$ebook = new ebookRead(LIBDIR.$fname);
 					$cover_manif = $ebook->getManifestById("cover");
-					$cover=$ebook->getContentFile($cover_manif->href);
+					$cover=$this->resampleCover($ebook->getContentFile($cover_manif->href));
+					
 					$this->books[]=array(
 						"cover"=>"data:".$cover_manif->type.";base64,".base64_encode($cover),
 						"title"=>$ebook->ebookData->title,
@@ -19,5 +20,29 @@ class Library {
 				}
 			closedir($dh);
 		} else die("Unable to open library");
+	}
+	
+	private function resampleCover($cover) {
+		$cover=imagecreatefromstring($cover);
+		$xx=imagesx($cover);
+		$yy=imagesy($cover);
+		
+		if (($xx/$yy)<1) {
+			$WW=($xx*COVERSIZE)/$yy;
+			$HH=COVERSIZE;
+		} else {
+			$HH=($yy*COVERSIZE)/$xx;
+			$WW=COVERSIZE;
+		}
+		$resized_cover=imagecreatetruecolor($WW,$HH);
+		imagecopyresampled($resized_cover,$cover,0,0,0,0,$WW,$HH,$xx,$yy);
+		imagedestroy($cover);
+
+		ob_start();
+		imagejpeg($resized_cover);
+		$img=ob_get_clean();
+
+		imagedestroy($resized_cover);
+		return $img;
 	}
 }
