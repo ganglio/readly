@@ -1,22 +1,29 @@
+@import "armata/stylesheet.css";
 html {
     height: 100%;
 }
 body {
     background-image: url("../images/body.jpg");
+    font-family: "ArmataRegular",sans;
     height: 100%;
     margin: 0;
 }
 header {
     background-image: url("../images/header.jpg");
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 3px rgba(255, 255, 255, 0.5) inset, 0 -3px 3px rgba(0, 0, 0, 0.5) inset;
     height: 40px;
-    box-shadow: inset 0 3px 3px rgba(255,255,255,0.5), inset 0 -3px 3px rgba(0,0,0,0.5);
 }
 header nav {
     height: 40px;
     line-height: 40px;
     margin: auto;
     width: 960px;
+}
+header nav span {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(255, 255, 255, 0.25);
 }
 header nav input {
     background-color: rgba(0, 0, 0, 0.5);
@@ -40,28 +47,23 @@ header nav input:focus {
     color: #D2B48C;
 }
 header nav .button {
-    background-image: url("../images/icons.png");
-    background-repeat: no-repeat;
-    color: black;
-    display: block;
-    float: right;
-    font-size: 16px;
-    height: 32px;
-    line-height: 32px;
-    margin: 4px;
-    padding-left: 40px;
-    text-decoration: none;
-    width: 80px;
+	padding: 2px;
+	border: 1px solid rgba(0,0,0,0.3);
+	width: 150px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	border-radius:5px;
+	background-image: -moz-linear-gradient(center top, rgba(210,180,140,0.5), rgba(223,183,130,0.5));
+	box-shadow: inset 0 2px 2px rgba(255,255,255,0.2), inset 0 -2px 2px rgba(0,0,0,0.2);
+	float: right;
+	margin:7px;
+	text-decoration: none;
+	color: transparent;
+	text-shadow: 0 0 0 black;
+	outline: none;
 }
-header nav .dropbox {
-    background-position: 0 -99px;
-}
-header nav .dropbox:hover {
-    background-position: 0 -68px;
-}
-header nav .upload {
-    background-position: 0 -32px;
-}
-header nav .upload:hover {
-    background-position: 0 0;
+header nav .button:active {
+	box-shadow: inset 0 -2px 2px rgba(255,255,255,0.2), inset 0 2px 2px rgba(0,0,0,0.2);
+	text-shadow: 0 1px 0 black;
 }

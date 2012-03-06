@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<nav>
-			<input type="text" class="search" placeholder="search"/>
+			<span>Read.ly</span>
 			<?php if (User::isIn()) : ?>
 				<a href="#dropbox" class="button dropbox">Dropbox</a>
 				<a href="#upload" class="button upload">Upload</a>
