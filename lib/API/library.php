@@ -1,6 +1,8 @@
 <?php
 
-class Library {
+require_once("lib/eBookLib/ebookRead.php");
+
+class Library extends API {
 	
 	public $books;
 	
@@ -19,7 +21,11 @@ class Library {
 					);
 				}
 			closedir($dh);
-		} else die("Unable to open library");
+		} else throw new Exception("Unable to open library",503);
+	}
+	
+	public function getbooks() {
+		return $this->books;
 	}
 	
 	private function resampleCover($cover) {
@@ -46,3 +52,4 @@ class Library {
 		return $img;
 	}
 }
+
