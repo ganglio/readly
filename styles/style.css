@@ -2,13 +2,13 @@ html {
     height: 100%;
 }
 body {
-    background-image: url("../images/body.jpg");
+    background-image: url("http://localhost/readly/styles/../images/body.jpg");
     font-family: "ArmataRegular",sans;
     height: 100%;
     margin: 0;
 }
 header {
-    background-image: url("../images/header.jpg");
+    background-image: url("http://localhost/readly/styles/../images/header.jpg");
     box-shadow: 0 3px 3px rgba(255, 255, 255, 0.5) inset, 0 -3px 3px rgba(0, 0, 0, 0.5) inset;
     height: 40px;
 }
@@ -26,7 +26,7 @@ header nav span.title {
 }
 header nav input {
     background-color: rgba(0, 0, 0, 0.5);
-    background-image: url("../images/search.png");
+    background-image: url("http://localhost/readly/styles/../images/search.png");
     background-position: 5px -19px;
     background-repeat: no-repeat;
     border: 2px solid rgba(0, 0, 0, 0.75);
@@ -46,38 +46,57 @@ header nav input:focus {
     color: #D2B48C;
 }
 header nav .button {
-	padding: 2px;
-	border: 1px solid rgba(0,0,0,0.3);
-	width: 150px;
-	height:20px;
-	line-height:20px;
-	text-align:center;
-	border-radius:5px;
-	background-image: -moz-linear-gradient(center top, rgba(210,180,140,0.5), rgba(223,183,130,0.5));
-	box-shadow: inset 0 2px 2px rgba(255,255,255,0.2), inset 0 -2px 2px rgba(0,0,0,0.2);
-	float: right;
-	margin:7px;
-	text-decoration: none;
-	color: transparent;
-	text-shadow: 0 0 0 black;
-	outline: none;
+    background-image: linear-gradient(center top , rgba(210, 180, 140, 0.5), rgba(223, 183, 130, 0.5));
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 2px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px rgba(0, 0, 0, 0.2) inset;
+    color: transparent;
+    cursor: pointer;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    margin: 7px;
+    outline: medium none;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 0 0 black;
+    width: 150px;
+    position: relative;
 }
 header nav .button:active {
-	box-shadow: inset 0 -2px 2px rgba(255,255,255,0.2), inset 0 2px 2px rgba(0,0,0,0.2);
-	text-shadow: 0 1px 0 black;
+    box-shadow: 0 -2px 2px rgba(255, 255, 255, 0.2) inset, 0 2px 2px rgba(0, 0, 0, 0.2) inset;
+    text-shadow: 0 1px 0 black;
 }
-
-/* MODALS AND MESSAGES */
-#modal {
-    box-sizing: border-box;
-    background: none repeat scroll 0 0 #C8C8C8;
-    left: 50%;
-    margin-left: -480px;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    width: 960px;
+header nav .button:hover .tooltip {
+	display: block;
+}
+header nav .button .tooltip {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    display: block;
+    left: 0;
+    padding: 2px;
+    position: absolute;
+    top: 45px;
+    width: 150px;
     display: none;
+    background-color: rgba(210, 180, 140, 0.5);
+    border-radius: 10px;
+    text-shadow: none;
+    color: black;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
-#modal:before {
+header nav .button .tooltip:before {
+    border-color: transparent transparent rgba(0, 0, 0, 0.3);
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    height: 0;
+    left: 70px;
+    position: absolute;
+    top: -20px;
+    width: 0;
+}
+#login, #dropbox {
+	display: none;
 }

@@ -5,22 +5,22 @@
 	<title>Read.ly</title>
 	<link rel="stylesheet" href="styles/style.css" />
 	<link rel="stylesheet" href="styles/armata/stylesheet.css" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://raw.github.com/LeaVerou/prefixfree/master/prefixfree.min.js"></script>
-	<script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
-	<script type="text/javascript" src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
-	<script type="text/javascript" src="scripts/header.view.js"></script>
-	<script type="text/template" id="templates"></script>
+	<script type="text/javascript" src="scripts/libs/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/libs/prefixfree.min.js"></script>
+	<script type="text/javascript" src="scripts/libs/jstorage.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/template" id="books_template">
+		<article class="book"><h1><%= title %></h1><img class="cover" src="<%= cover %>" /><h2><%= author %></h2></article>
+	</script>
 </head>
 <body>
 	<header>
 		<nav>
 			<span class="title">Read.ly</span>
-			<span class="buttons"></span>
+			<a id="login" class="button login">Login<span class="tooltip">You need a <strong>Dropbox</strong> account to use this service</span></a>
+			<a id="dropbox" class="button dropbox">Choose folder</a>
 		</nav>
 	</header>
-	<section id="modal"></section>
-	<section id="message"></section>
 	<section></section>
 </body>
 </html>
