@@ -9,9 +9,6 @@
 	<script type="text/javascript" src="scripts/libs/prefixfree.min.js"></script>
 	<script type="text/javascript" src="scripts/libs/jstorage.js"></script>
 	<script type="text/javascript" src="scripts/main.js"></script>
-	<script type="text/template" id="books_template">
-		<article class="book"><h1><%= title %></h1><img class="cover" src="<%= cover %>" /><h2><%= author %></h2></article>
-	</script>
 </head>
 <body>
 	<header>
@@ -19,6 +16,7 @@
 			<span class="title">Read.ly</span>
 			<a id="login" class="button login">Login<span class="tooltip">You need a <strong>Dropbox</strong> account to use this service</span></a>
 			<a id="dropbox" class="button dropbox">Choose folder</a>
+			<div id="trobbler"></div>
 		</nav>
 	</header>
 	<section></section>
