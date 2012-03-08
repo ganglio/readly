@@ -109,7 +109,7 @@ header nav .button .tooltip:before {
     top: -20px;
     width: 0;
 }
-#login {
+#login,#dropbox {
     display: none;
 }
 section {

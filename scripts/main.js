@@ -1,6 +1,13 @@
 $(document).ready(function(){
 	// Load current library
 	var library=$.jStorage.get("library");
+	var user=$.jStorage.get("user");
+	
+	if (user) {
+		$("#dropbox").show();
+	} else {
+		$("#login").show();
+	}
 	
 	// Update library
 	$.ajax({
