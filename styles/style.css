@@ -139,12 +139,18 @@ header nav .button .dropdown li:nth-of-type(2n) {
 header nav .button .dropdown li:hover {
 	background-color: rgba(255,255,255,0.75);
 }
-
-header nav .button .dropdown li .facebook {
+header nav .button .dropdown li.logins {
+	background-image: url(../images/icons.png);
+	background-repeat: no-repeat;
 }
-header nav .button .dropdown li .twitter {
+header nav .button .dropdown li.facebook {
+	background-position: 0 -48px;
 }
-header nav .button .dropdown li .dropbox {
+header nav .button .dropdown li.twitter {
+	background-position: 0 -25px;
+}
+header nav .button .dropdown li.dropbox {
+	background-position: 0px 0px;
 }
 
 header nav .button.open .dropdown {
