@@ -245,11 +245,12 @@ class ebookRead{
 			$navPoint = $this->getTag($xml, "navPoint");
 			$names = array();
 			$href = array();
-			foreach($navPoint as $nav){
-				array_push($names, $this->getTag($nav, "text"));
-				$hrefTemp = $this->getTag($nav, "content");
-				array_push($href, $this->optAttributeExist($hrefTemp, "src"));
-			}
+			if (is_array($navPoint))
+				foreach($navPoint as $nav){
+					array_push($names, $this->getTag($nav, "text"));
+					$hrefTemp = $this->getTag($nav, "content");
+					array_push($href, $this->optAttributeExist($hrefTemp, "src"));
+				}
 			$finToc = array();
 			for($x=0; $x < count($names);$x+=1){
 				$ch = new tocItem();
@@ -327,7 +328,7 @@ class ebookRead{
 	private function xmlFindData(SimpleXMLElement $xmlInput, $tag){
 		$array = array();
 		//If we find a match, save it.
-		if($xmlInput->getName() == $tag){
+		if(strpos($xmlInput->getName(),$tag)!==FALSE){
 			array_push($array, $xmlInput);
 		}
 		//If there are no children then this don't run.
@@ -373,7 +374,8 @@ class ebookRead{
 		$this->ebookData->title = (string)$this->ebookData->title;
 		$this->ebookData->language = (string)$this->ebookData->language;
 		$this->ebookData->identifier = (string)$this->ebookData->identifier;
-		$this->ebookData->creator = (string)$this->ebookData->creator;
+		$this->ebookData->creator_count = count($this->ebookData->creator);
+		$this->ebookData->creator = $this->implodeCreators($this->ebookData->creator);
 		$this->ebookData->contributor = (string)$this->ebookData->contributor;
 		$this->ebookData->publisher = (string)$this->ebookData->publisher;
 		$this->ebookData->subject = (string)$this->ebookData->subject;
@@ -389,6 +391,14 @@ class ebookRead{
 		for($x = 0;$x<count($this->ebookData->spineData);$x+=1){
 			$this->ebookData->spineData[$x] = (string)$this->ebookData->spineData[$x];
 		}
+	}
+	
+	private function implodeCreators($xml) {
+		if (is_array($xml))
+			foreach ($xml as $element)
+				$out[]=(string)$element;
+		else $out[]=(string)$xml;
+		return $out;
 	}
 
 	/**
@@ -449,6 +459,38 @@ class ebookRead{
 			trigger_error("improper parameters input for the ebookRead class decleration.", E_USER_ERROR);
 		}
 	}
+	
+/*********************
+ * Get Cover         *
+ *********************/
+	/**
+	 * gets the cover
+	 * @return a binary string containing the cover image
+	 * attribute requested.
+	 */
+	public function getCover() {
+		$cover_manif = $this->getManifestById("cover");
+		if (strpos($cover_manif->type,"image")!==FALSE)
+			$cover=$this->getContentFile($cover_manif->href);
+		if (!$cover) {
+			if (is_file($this->ebookData->epub))
+				if ($zip=zip_open($this->ebookData->epub)) {
+					while ($zip_entry=zip_read($zip)) {
+						switch (zip_entry_name($zip_entry)) {
+							case "iTunesArtwork":
+								$cover=zip_entry_read($zip_entry);
+								zip_entry_close($zip_entry);
+								return $cover;
+							break;
+						}
+						zip_entry_close($zip_entry);
+					}
+					zip_close($zip);
+				}
+		}
+		return $cover;
+	}
+
 
 /*********************
  * Getter Functions *

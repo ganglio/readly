@@ -16,13 +16,14 @@ header nav {
     height: 40px;
     line-height: 40px;
     margin: auto;
+    padding-right: 100px;
     position: relative;
-    width: 960px;
 }
 header nav span.title {
     color: rgba(0, 0, 0, 0.5);
     font-size: 30px;
     font-weight: bold;
+    padding-left: 20px;
     text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(255, 255, 255, 0.25);
 }
 header nav input {
@@ -75,25 +76,91 @@ header nav .button {
     text-align: center;
     text-decoration: none;
     text-shadow: 0 0 0 black;
-    width: 150px;
 }
 header nav .button:active {
     box-shadow: 0 -2px 2px rgba(255, 255, 255, 0.2) inset, 0 2px 2px rgba(0, 0, 0, 0.2) inset;
     text-shadow: 0 1px 0 black;
 }
+header nav .button[class*="open"]:hover .tooltip {
+    display: none;
+}
 header nav .button:hover .tooltip {
+    display: block;
+}
+
+header nav .button .dropdown:before {
+    background-image: url("http://localhost/readly/styles/../images/noise.png"), -moz-linear-gradient(-45deg, #333333 52%, transparent 55%);
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5) inset;
+    content: "";
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    width: 20px;
+    right: 15px;
+    transform: rotate(45deg);
+}
+
+header nav .button .dropdown {
+    background-color: #333333;
+    background-image: url(../images/noise.png);
+    box-shadow: 0 1px rgba(255, 255, 255, 0.5) inset, 3px 3px 3px rgba(0, 0, 0, 0.5);
+    display: none;
+    padding: 5px;
+    position: absolute;
+    border-radius: 10px;
+    top: 50px;
+    right:0;
+}
+header nav .button .dropdown ul {
+    background-color: #DDDDDD;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 1px 1px 1px #AAAAAA inset, -1px -1px 1px #FFFFFF inset;
+    margin: 0;
+    padding:0;
+    text-align: left;
+}
+header nav .button .dropdown li:first-of-type {
+	border-radius: 6px 6px 0 0;
+}
+header nav .button .dropdown li:last-of-type {
+	border-radius: 0 0 6px 6px;
+}
+
+header nav .button .dropdown li {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 24px;
+    padding-right: 10px;
+}
+header nav .button .dropdown li:nth-of-type(2n) {
+	background-color: rgba(255,255,255,0.2);
+}
+
+header nav .button .dropdown li:hover {
+	background-color: rgba(255,255,255,0.75);
+}
+
+header nav .button .dropdown li .facebook {
+}
+header nav .button .dropdown li .twitter {
+}
+header nav .button .dropdown li .dropbox {
+}
+
+header nav .button.open .dropdown {
     display: block;
 }
 header nav .button .tooltip {
     background-color: rgba(210, 180, 140, 0.5);
+    background-image: url(../images/noise.png);
     border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 0 10px 10px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     color: black;
     display: none;
-    left: 0;
     padding: 2px;
     position: absolute;
+    right: 0;
     text-shadow: none;
     top: 45px;
     width: 150px;
@@ -104,44 +171,42 @@ header nav .button .tooltip:before {
     border-width: 10px;
     content: "";
     height: 0;
-    left: 70px;
+    right: 14px;
     position: absolute;
     top: -20px;
     width: 0;
 }
-#login,#dropbox {
+#login, #dropbox {
     display: none;
 }
 section {
-	text-align: center;
+    padding-top: 15px;
+    text-align: center;
 }
 .book {
-    display: inline-block;
-    text-align: center;
-    width: 200px;
-    vertical-align: top;
-    margin:10px;
+    -moz-transition: -moz-transform 0.15s ease 0s;
     cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    vertical-align: top;
+    width: 200px;
+}
+.book:hover {
+    -moz-transform: scale(1.2);
 }
 .book img {
-	box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 .book h1 {
     font-size: 14px;
-    height: 16px;
-    line-height: 16px;
-    margin: 0;
-    overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-}
-.book:hover h1 {
-	overflow: visible;
-	white-space: normal;
+    font-weight: bold;
+    margin: 3px 0 0;
 }
 .book h2 {
     font-size: 13px;
+    font-weight: normal;
     margin: 0;
 }
 

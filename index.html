@@ -14,8 +14,18 @@
 	<header>
 		<nav>
 			<span class="title">Read.ly</span>
-			<a id="login" class="button login">Login<span class="tooltip">You need a <strong>Dropbox</strong> account to use this service</span></a>
-			<a id="dropbox" class="button dropbox">Choose folder<span class="tooltip">Select the folder containing your books</span></a>
+			<a id="login" class="button login">
+				Login
+				<span class="tooltip">Login or create an account</span>
+				<div class="dropdown">
+					<ul>
+						<li class="facebook">Facebook</li>
+						<li class="twitter">Twitter</li>
+						<li class="dropbox">Dropbox</li>
+					</ul>
+				</div>
+			</a>
+			<a id="dropbox" class="button dropbox">Dropbox<span class="tooltip">Select the folder containing your books</span></a>
 			<div id="trobbler"></div>
 		</nav>
 	</header>

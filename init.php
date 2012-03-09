@@ -2,6 +2,7 @@
 
 define("LIBDIR",__DIR__."/books/");
 define("COVERSIZE","150");
+ini_set("gd.jpeg_ignore_warning", 1);
 
 require_once("lib/config.php");
 
