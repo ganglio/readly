@@ -26,7 +26,7 @@ $(document).ready(function(){
 			console.log("error");
 		},
 		"complete":function(){
-			/*for (var i in library)
+			for (var i in library)
 				$("section").append('<article class="book"><img class="cover" src="'+library[i].cover+'" /><h2>'+library[i].author.join(", ")+'</h2><h1>'+library[i].title+'</h1></article>');//*/
 			$("#trobbler").fadeOut("fast");
 		}
