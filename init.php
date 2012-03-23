@@ -1,10 +1,11 @@
 <?php
 
-define("LIBDIR",__DIR__."/books/");
-define("COVERSIZE","150");
-ini_set("gd.jpeg_ignore_warning", 1);
-
 require_once("lib/config.php");
+
+$mongo=new Mongo("mongodb://".MONGO_HOST."/".MONGO_DB);
+$db=$mongo->MONGO_DB;
+
+$crypt=new Crypt(CRYPT_KEY,CRYPT_IV);
 
 error_reporting(E_ALL & ~E_NOTICE);
 
@@ -15,4 +16,9 @@ function __autoload($class_name) {
 		require_once("lib/API/$class_name.php");
 	else
 		throw new Exception("API Not Found",404);
+}
+
+function arg($i) {
+	$q=explode("/",$_GET["q"]);
+	return $q[$i];
 }

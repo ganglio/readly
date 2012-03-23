@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	twttr.anywhere.config({ callbackURL: "http://bibliot.ec/login/twitter"});
+
 	// Load current library
 	var library=$.jStorage.get("library");
 	var user=$.jStorage.get("user");

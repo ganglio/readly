@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function getSelectionText() {
+				var text = "";
+
+				if (window.getSelection) {
+					text = window.getSelection().toString();
+				} else if (document.selection && document.selection.type != "Control") {
+					text = document.selection.createRange().text;
+				}
+				return text;
+			}
+			
+			$(".selectable").mouseup(function(){
+				var selectedText=getSelectionText();
+				console.log(selectedText);
+				
+				if (selectedText) {
+					var fullText=$(this).text();
+					fullText=fullText.replace(selectedText,"<span class='selected'>"+selectedText+"</span>");
+					$(this).html(fullText);
+					$(".selected",this).append("<div class='menu'>Menu</div>");
+				}
+			});
+			
+			$(window).click(function(){
+				$(".menu").remove();
+				var $selected=$(".selected");
+				$selected.replaceWith($selected.text());
+			});
+		});
+	</script>
+	<style type="text/css">
+.selected {
+    background-color: #FCFF92;
+    border-color: wheat;
+    border-style: dotted;
+    border-width: 1px 0;
+    position: relative;
+}
+.menu {
+    background: none repeat scroll 0 0 wheat;
+    bottom: -30px;
+    left: 50%;
+    position: absolute;
+}
+.menu:before {
+    border-color: transparent transparent wheat wheat;
+    border-style: solid;
+    border-width: 4px;
+    content: "";
+    height: 0;
+    position: absolute;
+    top: -8px;
+    width: 0;
+}
+	</style>
+</head>
+<body>
+	<p class="selectable">Tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore Aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit Irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur</p>
+</body>
+</html>

@@ -469,7 +469,7 @@ class ebookRead{
 	 * attribute requested.
 	 */
 	public function getCover() {
-		$cover_manif = $this->getManifestById("cover");
+		$cover_manif = $this->getManifestById("cover")?$this->getManifestById("cover"):$this->getManifestById("cover-image");
 		if (strpos($cover_manif->type,"image")!==FALSE)
 			$cover=$this->getContentFile($cover_manif->href);
 		if (!$cover) {

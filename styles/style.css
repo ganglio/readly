@@ -2,13 +2,13 @@ html {
     height: 100%;
 }
 body {
-    background-image: url("http://localhost/readly/styles/../images/body.jpg");
+    background-image: url(../images/body.jpg);
     font-family: "ArmataRegular",sans;
     height: 100%;
     margin: 0;
 }
 header {
-    background-image: url("http://localhost/readly/styles/../images/header.jpg");
+    background-image: url(../images/header.jpg);
     box-shadow: 0 3px 3px rgba(255, 255, 255, 0.5) inset, 0 -3px 3px rgba(0, 0, 0, 0.5) inset;
     height: 40px;
 }
@@ -28,7 +28,7 @@ header nav span.title {
 }
 header nav input {
     background-color: rgba(0, 0, 0, 0.5);
-    background-image: url("http://localhost/readly/styles/../images/search.png");
+    background-image: url(../images/search.png);
     background-position: 5px -19px;
     background-repeat: no-repeat;
     border: 2px solid rgba(0, 0, 0, 0.75);
@@ -60,7 +60,7 @@ header nav #trobbler {
     width: 6px;
 }
 header nav .button {
-    background-image: -moz-linear-gradient(center top , rgba(210, 180, 140, 0.5), rgba(223, 183, 130, 0.5));
+    background-image: linear-gradient(center top , rgba(210, 180, 140, 0.5), rgba(223, 183, 130, 0.5));
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 2px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px rgba(0, 0, 0, 0.2) inset;
@@ -89,7 +89,7 @@ header nav .button:hover .tooltip {
 }
 
 header nav .button .dropdown:before {
-    background-image: url("http://localhost/readly/styles/../images/noise.png"), -moz-linear-gradient(-45deg, #333333 52%, transparent 55%);
+    background-image: url("../images/noise.png"), linear-gradient(-45deg, #333333 52%, transparent 55%);
     box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5) inset;
     content: "";
     height: 20px;
@@ -190,7 +190,7 @@ section {
     text-align: center;
 }
 .book {
-    -moz-transition: -moz-transform 0.15s ease 0s;
+    transition: -moz-transform 0.15s ease 0s;
     cursor: pointer;
     display: inline-block;
     margin: 10px;
@@ -200,7 +200,7 @@ section {
     width: 200px;
 }
 .book:hover {
-    -moz-transform: scale(1.2);
+    transform: scale(1.2);
 }
 .book img {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);

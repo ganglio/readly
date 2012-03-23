@@ -13,7 +13,8 @@ class REST {
 		
 		try {
 			$out=self::invoke($q[0],$q[1],$pars);
-			IO::out($out);
+			if ($out)
+				IO::out($out);
 		} catch (Exception $e) {
 			header("HTTP/1.1 ".$e->getCode()." ".$e->getMessage());
 			IO::out(array("status"=>-1,"result"=>array("error"=>$e->getCode(),"message"=>$e->getMessage())));
